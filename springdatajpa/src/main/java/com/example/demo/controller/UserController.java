@@ -14,6 +14,10 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+/**
+ * 目前service和controller合并   为了简化 下 不规范
+ *
+ */
 @RestController
 @RequestMapping("users")
 @Slf4j
