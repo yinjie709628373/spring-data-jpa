@@ -24,6 +24,7 @@ import org.springframework.web.bind.annotation.*;
 public class UserController {
     @Autowired
     private UserRepository userRepository;
+    //需要加载插件
     private QUser qUser=QUser.user;
     @GetMapping("")
     public void get(){
@@ -40,10 +41,9 @@ public class UserController {
 
         BooleanBuilder query = new BooleanBuilder();
         if (!Objects.isNull(name)) {
-            query.and(qUser.name.containsIgnoreCase(name).and(qUser.name.like("a")));
+            query.and(qUser.name.like("%"+name+"%"));
         }
         Page<User> users = userRepository.findAll(query.getValue(),pageable);
-
         return users;
     }
 }
