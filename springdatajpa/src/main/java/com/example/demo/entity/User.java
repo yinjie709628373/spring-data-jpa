@@ -5,7 +5,6 @@ import lombok.Setter;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.UUID;
 
 @Entity
 @Table(name="user_")
@@ -14,9 +13,8 @@ import java.util.UUID;
 public class User {
     @Id
     @GeneratedValue
-    @Type(type = "uuid-char" )
     @Column(name="id_",length = 36)
-    private UUID id;
+    private Long id;
     @Column(name="name_")
     private String name;
 }

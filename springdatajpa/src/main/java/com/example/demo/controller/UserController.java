@@ -44,6 +44,7 @@ public class UserController {
             query.and(qUser.name.like("%"+name+"%"));
         }
         Page<User> users = userRepository.findAll(query.getValue(),pageable);
+       log.info(String.valueOf(userRepository.countDemo().size()));
         return users;
     }
 }
